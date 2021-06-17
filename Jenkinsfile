@@ -43,11 +43,11 @@ pipeline {
 
      
    stage('Docker Bnp') {
+     agent any
      when {
                 branch 'master'
             }
-    steps {
-      agent any
+         
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
@@ -60,7 +60,7 @@ pipeline {
 
       }
     }
-    }
+    
 
   }
   tools {
